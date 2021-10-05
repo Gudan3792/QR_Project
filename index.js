@@ -10,3 +10,5 @@ app.get('/', function(req,res) {
 app.get('/main', function(req,res) {
     res.sendFile(__dirname + "/public/main.html")
 })
+
+app.use(express.static('public'))
