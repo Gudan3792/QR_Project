@@ -1,14 +1,14 @@
 var express = require('express')
-var app = express()
+var Server = express()
 
-app.listen(8484);
+Server.listen(8484);
 
-app.get('/', function(req,res) {
+Server.get('/', function(req,res) {
     res.sendFile(__dirname + "/public/main.html")
 })
 
-app.get('/main', function(req,res) {
+Server.get('/main', function(req,res) {
     res.sendFile(__dirname + "/public/main.html")
 })
 
-app.use(express.static('public'))
+Server.use(express.static('public'))
