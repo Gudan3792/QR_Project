@@ -1,0 +1,22 @@
+{
+  "name": "node_server",
+  "version": "1.0.0",
+  "description": "NodeJS server for Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gudan3792/QR_Project.git"
+  },
+  "author": "Gudan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gudan3792/QR_Project/issues"
+  },
+  "homepage": "https://github.com/Gudan3792/QR_Project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
