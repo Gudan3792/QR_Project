@@ -18,5 +18,6 @@
   "homepage": "https://github.com/Gudan3792/QR_Project#readme",
   "dependencies": {
     "express": "^4.17.1"
+    
   }
 }
