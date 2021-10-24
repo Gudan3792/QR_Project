@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 
 app.use(express.static('images'));
-app.use(express.static(__dirname + '/css'));
-app.get('/',(req,res) => res.sendFile(__dirname + '/css/main/main.html'));
+app.use(express.static(__dirname + '/homepage_file'));
+app.get('/',(req,res) => res.sendFile(__dirname + '/homepage_file/main/main.html'));
 
 app.get('/about',(req,res)=>{
     res.send('about page');
