@@ -2,15 +2,15 @@
 <html lang="kor">
 <head>
     <script>
-        function iamport(){
+        function iamport(n,p){
     //가맹점 식별코드
     IMP.init('imp72396912');
     IMP.request_pay({
         pg : 'kakaopay',
         pay_method : 'card',
         merchant_uid : 'merchant_' + new Date().getTime(),
-        name : '상품1' , //결제창에서 보여질 이름
-        amount : 100, //실제 결제되는 가격
+        name : n , //결제창에서 보여질 이름
+        amount : p, //실제 결제되는 가격
     }, function(rsp) {
         console.log(rsp);
         if ( rsp.success ) {
@@ -60,8 +60,8 @@
 
 
             <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <button type="button" class="btm_image" id="img_btn"><img src="/WKwkdaus.jpg"style width="365px;height:365px" onclick="iamport();"><br>3000원</button>
-                 <button type="button" class="btm_image" id="img_btn"><img src="/RKsvkdrn.jpg"width="365px;height:auto"><br>4000원</button>
+                <button type="button" class="btm_image" id="img_btn"><img src="/WKwkdaus.jpg"style width="365px;height:365px" onclick="iamport('자장면',3000);"><br>3000원</button>
+                 <button type="button" class="btm_image" id="img_btn"><img src="/RKsvkdrn.jpg"width="365px;height:auto"onclick="iamport('깐풍기',4000);"><br>4000원</button>
             </div> 
             <div align="center">
             </div>
