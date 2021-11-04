@@ -2,15 +2,14 @@ function admin_login(){
     var userid = document.getElementById("userid").value; // userid 의 값을 받아와 넣음.
     var userpw = document.getElementById("userpw").value; // userpw 의 값을 받아와 넣음.
 
-    var result = Sha256Encryption(userpw);
+    var resultpw = Sha256Encryption(Sha256Encryption(userpw + 'include'));
+    var resultid = Sha256Encryption(Sha256Encryption(userid + 'include'));
 
-    if(userid == "admin" && result == "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918") {
+    if(resultid == "05f9677b6691fbc9b57c1e2df474f38775b00d1f6e2f3881bf306dc18e56bae6" && resultpw == "05f9677b6691fbc9b57c1e2df474f38775b00d1f6e2f3881bf306dc18e56bae6") {
       alert("로그인 성공");
-      console.log("로그인 성공했습니다.");
       location.href ='admin_main.html'
     } else {
       alert("로그인 실패");
-      console.log("로그인 실패했습니다.");
     }
 };
 
