@@ -10,7 +10,6 @@ var chkInfo = function (userName, password) {
     return (admin_info_1.default.AdminName == userName && admin_info_1.default.AdminPassword == password);
 };
 var login = function (req, res) {
-    console.log(req.body);
     var userName = req.body.userName;
     var password = req.body.password;
     if (!chkInfo(userName, password)) {

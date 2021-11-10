@@ -26,6 +26,7 @@ exports.createApiRouter = exports.initMethod = void 0;
 var express_1 = __importDefault(require("express"));
 var cookie_parser_1 = __importDefault(require("cookie-parser"));
 var body_parser_1 = __importDefault(require("body-parser"));
+var express_fileupload_1 = __importDefault(require("express-fileupload"));
 var init = __importStar(require("./var_box"));
 var handler_1 = __importDefault(require("./handler/handler"));
 var l = /** @class */ (function () {
@@ -49,6 +50,7 @@ var l = /** @class */ (function () {
             var router = express_1.default.Router();
             router.use(express_1.default.json());
             router.use(body_parser_1.default.urlencoded({ extended: false }));
+            router.use((0, express_fileupload_1.default)());
             router.use((0, cookie_parser_1.default)());
             router.post("/login", handler_1.default.publicHandler.adminLogin);
             router.get("/chk_session", handler_1.default.publicHandler.sessionCheck);

@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/homepage_file'));
 app.get('/',(req,res) => res.sendFile(__dirname + '/homepage_file/main/main.html'));
 
 adminModule.initMethod.initDB("127.0.0.1",3306,"root","1234","test");//db 초기화 함수
-adminModule.initMethod.initAdminStaticPath("/homepage_file/main/main.html");//로그인 완료후 리다이렉트될 url
+adminModule.initMethod.initAdminStaticPath("/admin_login/admin_main.html");//로그인 완료후 리다이렉트될 url
 
 app.use("/api",adminModule.createApiRouter());
 

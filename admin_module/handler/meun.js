@@ -33,15 +33,19 @@ var deleteHandler = function (req, res) {
 };
 exports.deleteHandler = deleteHandler;
 var createHandler = function (req, res) {
+    var _a;
+    console.log(req.body);
+    console.log(req.files);
     if (admin_info_1.default.SessionKey == req.cookies.session) {
         res.status(400).send("not match session");
         return;
     }
+    var f = (_a = req.files) === null || _a === void 0 ? void 0 : _a.image;
     var d = {
         name: req.body.name,
         price: req.body.price,
-        image_type: req.body.imageType,
-        data: req.body.data
+        image_type: f.mimetype,
+        data: f.data
     };
     (0, insert_1.default)((0, var_box_1.getConn)(), d).then(function () {
         res.status(200).send("");
