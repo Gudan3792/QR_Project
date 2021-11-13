@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.chkSession = exports.login = void 0;
 var admin_info_1 = __importDefault(require("./login/admin_info"));
 var var_box_1 = require("../var_box");
+
 var chkInfo = function (userName, password) {
+
     return (admin_info_1.default.AdminName == userName && admin_info_1.default.AdminPassword == password);
 };
 var login = function (req, res) {
@@ -35,3 +37,5 @@ var chkSession = function (req, res) {
     res.status(200).send("ok");
 };
 exports.chkSession = chkSession;
+
+
