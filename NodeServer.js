@@ -75,7 +75,7 @@ app.post('/Pr_updataAf', function (req, res) {
     var body = req.body;
     console.log(body);
 
-    var sql = 'UPDATE `menu` SET name = ? WHERE id =?';
+    var sql = 'UPDATE `menu` SET price = ? WHERE id =?';
     var params = [body.price, body.id];
     console.log(sql);
     conn.query(sql, params, function(err) {
