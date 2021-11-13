@@ -1,19 +1,31 @@
-var mySQL = require('mySQL');
-var conn = mySQL.createConnection({
-    host : '127.0.0.1',
-    user : 'root',
-    password : '111111',
+var mysql = require('mySQL');
+var db_info = {
+    host: '127.0.0.1',
+    port: '3306',
+    user: 'root',
+    password: '111111',
     database : 'project_sql'
-});
+}
 
-conn.connect();
-conn.query('SELECT * FROM menu', function(error, res, fields){
+module.exports = {
+    init: function () {
+        return mysql.createConnection(db_info);
+    },
+    connect: function(conn) {
+        conn.connect(function(err) {
+            if(err) console.error('mysql connection error : ' + err);
+            else console.log('mysql is connected successfully!');
+        });
+    }
+}
+/* conn.connect();
+conn.query('SELECT * FROM menu ', function(error, res, fields){
     if(error){
         console.log(error);
     }
     console.log(res);
 });
 
-conn.end();
+conn.end(); */
 
 //일단 터미널에 node SQLjs.js 후 로딩되는거 확인

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script src = "main/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel = "stylesheet" href="main/main.css">
+        <title>#include 메뉴판</title>
+
+    </head>
+    <body>
+        <a href="admin_login/admin_login.html"><h3 class ="gallery-login">관리자 로그인</h3></a>
+        <h1 class="gallery-title">#include 메뉴판</h1>
+        <table border='1'>
+            <colgroup>
+                <col width='100'><col width='200'><col width='100'>
+            </colgroup>
+            <tbody>
+                <div class="container">
+                    <div class="row">
+
+                    </div>
+            
+                    <div align="center">
+                        <button class="btn btn-default filter-button" data-filter="all">전체</button>
+                        <button class="btn btn-default filter-button" data-filter="hdpe">세트A</button>
+                        <button class="btn btn-default filter-button" data-filter="sprinkle">세트B</button>
+                        <button class="btn btn-default filter-button" data-filter="spray">세트C</button>
+                        <button class="btn btn-default filter-button" data-filter="irrigation">음료수</button>
+                    </div>
+                    <br/>
+                
+                        <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                            <button type="button" class="btm_image" id="img_btn"><img src="/WKwkdaus.jpg"style width="365px;height:365px" onclick="iamport('자장면',menuarr[0]);"><br><%=list[0].name%> <%=list[0].price%>원</button>
+                             <button type="button" class="btm_image" id="img_btn"><img src="/RKsvkdrn.jpg"width="365px;height:auto"onclick="iamport('깐풍기',4000);"><br><%=list[1].name%> <%=list[1].price%>원</button>
+                        </div> 
+                        <div align="center">
+                        </div>
+                        <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                            <button type="button" class="btm_image" id="img_btn"><img src="/Tangsuyuk_(Korean_Chinese_sweet_and_sour_pork).jpg"style width="365px;height:auto"><br><%=list[2].name%> <%=list[2].price%>원</button>
+                            <button type="button" class="btm_image" id="img_btn"><img src="/img_MKH180615003_0.jpg"width="365px;height:auto"><br><%=list[3].name%> <%=list[3].price%>원</button>
+                        </div> 
+                        <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                            <button type="button" class="btm_image" id="img_btn"><img src="/20210420-12042780.jpg"style width="365px;height:700px"><br><%=list[4].name%> <%=list[4].price%>원</button>
+                            <button type="button" class="btm_image" id="img_btn"><img src="/17382_37822_5344.jpg"style width="365px;height:auto"><br><%=list[5].name%> <%=list[5].price%>원</button>
+                        </div>
+                        <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                            <button type="button" class="btm_image" id="img_btn"><img src="/2756808e5603db7a18c4f5ee9a699ee41.jpg"style width="365px;height:auto" onclick="iamport('짬뽕',7000);"><br><%=list[6].name%> <%=list[6].price%>원</button>
+                             <button type="button" class="btm_image" id="img_btn"><img src="/20150811112303396tskh.jpg"style width="365px;height:700px"onclick="iamport('맥주',3000);"><br><%=list[7].name%> <%=list[7].price%>원</button>
+                        </div> 
+                        <a href="/main/cart.html"><h3 class ="filter-button">cart</h3></a>
+                    </div>
+                </div>
+            </tbody>
+        </table boader='1'>
+    </body>
+</html>

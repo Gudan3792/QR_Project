@@ -13,3 +13,5 @@ INSERT INTO `menu` VALUES (3,'탕수육',5000,NOW());
 INSERT INTO `menu` VALUES (4,'족발',6000,NOW());
 INSERT INTO `menu` VALUES (5,'버블티',7000,NOW());
 INSERT INTO `menu` VALUES (6,'ZICO',8000,NOW());
+INSERT INTO `menu` VALUES (7,'짬뽕',7000,NOW());
+INSERT INTO `menu` VALUES (8,'생맥주',3000,NOW());
