@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>admin</title>
+    </head>
+    <body>
+        <h2>admin</h2>
+        <table border='1'>
+            <colgroup>
+                <col width='60'><col width='200'><col width='100'>
+            </colgroup>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>상품명</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i < list.length; i++) { %>
+            <tr>
+                <td><%=list[i].id %></td>
+                <td><%=list[i].name %></td>
+                <td><%=list[i].price %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table boader='1'>
+<div>
+    <form action='/writeAf' method='post'>
+        번호 : <input type='text' name="id" value="<%=list.length+1%>"><br>
+        상품명 : <input type='text' name="name"><br>
+        가격 : <input type='text' name='price'><br>
+        <button type='submit'>추가</button>
+    </form>
+</div>
+<div>
+    <form action='/deleteAf' method='post'>
+        상품명 : <input type='text' name="name" list="menuname"><br>
+        <datalist id="menuname">
+            <% for(i = 0; i < list.length; i++) { %>
+                    <option value="<%=list[i].name%>">
+                <% } %>
+        </datalist>
+        <button type='submit'>제거</button><br><br>
+    </form>
+</div>
+<div>
+    <form action='/updataAf' method='post'>
+        id : <input type='text' name="id" list="menuid"><br>
+        <datalist id="menuid">
+            <% for(i = 0; i < list.length; i++) { %>
+                    <option value="<%=list[i].id%>">
+                <% } %>
+            </option>
+        </datalist>
+        변경내용 : <input type='text' name="name"><br>
+        <button type='submit'>상품명 수정</button>
+    </form>
+</div>
+<form action='/Pr_updataAf' method='post'>
+    id : <input type='text' name="id" list="menuid"><br>
+    <datalist id="menuid">
+        <% for(i = 0; i < list.length; i++) { %>
+                <option value="<%=list[i].id%>">
+            <% } %>
+        </option>
+    </datalist>
+    변경내용 : <input type='text' name="price"><br>
+    <button type='submit'>가격 수정</button>
+</form>
+    </body>
+</html>
