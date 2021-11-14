@@ -25,10 +25,18 @@ app.get('/', function (req, res) {
 });
 
 app.get('/admin_login/admin_main', function (req, res) {
-    var sql = 'SELECT * FROM menu';    
+    var sql = 'SELECT * FROM sales';    
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
         else res.render('admin_main.ejs', {list : rows});
+    });
+});
+
+app.post('/admin_login/admin_main2', function (req, res) {
+    var sql = 'SELECT * FROM menu';    
+    conn.query(sql, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else res.render('admin_main2.ejs', {list : rows});
     });
 });
 
@@ -41,7 +49,7 @@ app.post('/writeAf', function (req, res) {
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
-        else res.redirect('/admin_login/admin_main');
+        else res.redirect('/admin_login/admin_main2');
     });
 });
 
@@ -54,7 +62,7 @@ app.post('/deleteAf', function (req, res) {
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
-        else res.redirect('/admin_login/admin_main');
+        else res.redirect('/admin_login/admin_main2');
     });
 });
 
@@ -67,7 +75,7 @@ app.post('/updataAf', function (req, res) {
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
-        else res.redirect('/admin_login/admin_main');
+        else res.redirect('/admin_login/admin_main2');
     });
 });
 
@@ -80,7 +88,7 @@ app.post('/Pr_updataAf', function (req, res) {
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
-        else res.redirect('/admin_login/admin_main');
+        else res.redirect('/admin_login/admin_main2');
     });
 });
 
