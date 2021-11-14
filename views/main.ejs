@@ -25,24 +25,6 @@
                     </div>
                     <br/>
                     <div class ="maincon">
-                        <!-- <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                            <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"style width="365px;height:365px" ><br><%=list[0].name%> <%=list[0].price%>원</button>
-                             <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"width="365px;height:auto"><br><%=list[1].name%> <%=list[1].price%>원</button>
-                        </div> 
-                        <div align="center">
-                        </div>
-                        <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                            <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"style width="365px;height:auto"><br><%=list[2].name%> <%=list[2].price%>원</button>
-                            <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"width="365px;height:auto"><br><%=list[3].name%> <%=list[3].price%>원</button>
-                        </div> 
-                        <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                            <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"style width="365px;height:700px"><br><%=list[4].name%> <%=list[4].price%>원</button>
-                            <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"style width="365px;height:auto"action='/iamport' method='post'><br><%=list[5].name%> <%=list[5].price%>원</button>
-                        </div>
-                        <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                            <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"style width="365px;height:auto" onclick="iamport('짬뽕',7000);"><br><%=list[6].name%> <%=list[6].price%>원</button>
-                             <button type="button" class="btm_image" id="img_btn"><img src="https://via.placeholder.com/365"style width="365px;height:700px"onclick="iamport('맥주',3000);"><br><%=list[7].name%> <%=list[7].price%>원</button>
-                        </div> -->
                         <%for(var i=0;i<list.length;i++){%>
                             <% if( (i+1) % 2 == 1 ){%>
                             <div align="center" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
@@ -52,8 +34,7 @@
                             </div>
                             <%}}%>
                         
-                    </div>
-                        
+                        </div>
                         <a href="/main/cart.html"><h3 class ="filter-button">cart</h3></a>
                     </div>
                 </div>
