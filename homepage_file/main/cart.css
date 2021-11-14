@@ -1,5 +1,6 @@
 .basketdiv {
     width: 100%;
+    height: 80%;
     border-top: 1px solid #e0e0e0;
     float: left;
     font-size: 0.9375em;
@@ -70,11 +71,11 @@
         width: 20%;
     }
     .basketdiv .pname{
-        width: 70%;
+        width: 50%;
     
     }
     .basketdiv2 .pname {
-        width: 80%;
+        width: 50%;
     }
     .basketdiv .basketprice {
         width: 33%;
