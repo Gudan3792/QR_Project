@@ -49,7 +49,7 @@ let basket = {
         var p_num = parseInt(item.getAttribute('value'));
         var newval = event.target.classList.contains('up') ? p_num+1 : event.target.classList.contains('down') ? p_num-1 : event.target.value;
         
-        if (parseInt(newval) < 1 || parseInt(newval) > 99) { return false; }
+        if (parseInt(newval) < 0 || parseInt(newval) > 99) { return false; }
 
         item.setAttribute('value', newval);
         item.value = newval;
