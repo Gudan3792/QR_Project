@@ -1,4 +1,3 @@
-
 .basketdiv {
     width: 100%;
     border-top: 1px solid #e0e0e0;
@@ -57,7 +56,7 @@
         line-height: 60px;
     }
         .basketdiv .data .num .updown {
-            color: #0075ff;
+            color: #42B32F;
             font-size: 2em;
             letter-spacing: -5px;
         }
@@ -72,6 +71,7 @@
     }
     .basketdiv .pname{
         width: 70%;
+    
     }
     .basketdiv2 .pname {
         width: 80%;
@@ -84,9 +84,9 @@
       min-width: 105px;
     }
     .basketdiv .sum {
-        width: 34%;
-      max-width: 80px;
-        color: #0000aa;
+        width: 70%;
+      max-width: 90px;
+        color: #42B32F;
     }
     .basketdiv .point {
         width: 50%;
@@ -101,7 +101,7 @@
 
     .basketdiv2 .sum {
         width: 25%;
-        color: #0000aa;
+        color: #42B32F;
     }
 
     .basketdiv2 .point {
@@ -164,7 +164,7 @@
     color:#b00;
 }
 .blue {
-  color: #0075ff;
+  color: #42B32F;
 }
 .basketrowcmd, .sumcount, .summoney{
   text-align: right;
@@ -200,3 +200,4 @@
     width: 40px;
     font-size: 1em;
 }
+
