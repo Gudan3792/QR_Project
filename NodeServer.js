@@ -32,7 +32,7 @@ app.get('/admin_login/admin_main', function (req, res) {
     });
 });
 
-app.post('/admin_login/admin_main2', function (req, res) {
+app.get('/admin_login/admin_main2', function (req, res) {
     var sql = 'SELECT * FROM menu';    
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
