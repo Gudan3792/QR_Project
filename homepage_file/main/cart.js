@@ -1,30 +1,7 @@
 let basket = {
     totalCount: 0, 
     totalPrice: 0,
-    //체크한 장바구니 상품 비우기
-    delCheckedItem: function(){
-        document.querySelectorAll("input[name=buy]:checked").forEach(function (item) {
-            item.parentElement.parentElement.parentElement.remove();
-        });
-        //AJAX 서버 업데이트 전송
-    
-        //전송 처리 결과가 성공이면
-        this.reCalc();
-        this.updateUI();
-    },
-    //장바구니 전체 비우기
-    delAllItem: function(){
-        document.querySelectorAll('.row.data').forEach(function (item) {
-            item.remove();
-          });
-          //AJAX 서버 업데이트 전송
-        
-          //전송 처리 결과가 성공이면
-          this.totalCount = 0;
-          this.totalPrice = 0;
-          this.reCalc();
-          this.updateUI();
-    },
+
     //재계산
     reCalc: function(){
         this.totalCount = 0;
@@ -66,11 +43,31 @@ let basket = {
         this.reCalc();
         this.updateUI();
     },
-    delItem: function () {
-        event.target.parentElement.parentElement.parentElement.remove();
-        this.reCalc();
-        this.updateUI();
-    }
+
+     iamport: function(){
+        //가맹점 식별코드
+        IMP.init('imp72396912');
+        IMP.request_pay({
+            pg : 'kakaopay',
+            pay_method : 'card',
+            merchant_uid : 'merchant_' + new Date().getTime(),
+            name : this.totalCount+" 개의 상품" , //결제창에서 보여질 이름
+            amount : this.totalPrice, //실제 결제되는 가격
+        }, function(rsp) {
+            console.log(rsp);
+            if ( rsp.success ) {
+                var msg = '결제가 완료되었습니다.';
+                msg += '고유ID : ' + rsp.imp_uid;
+                msg += '상점 거래ID : ' + rsp.merchant_uid;
+                msg += '결제 금액 : ' + rsp.paid_amount;
+                msg += '카드 승인번호 : ' + rsp.apply_num;
+            } else {
+                 var msg = '결제에 실패하였습니다.';
+                 msg += '에러내용 : ' + rsp.error_msg;
+            }
+            // alert(msg);
+        });
+    },
 }
 
 // 숫자 3자리 콤마찍기
