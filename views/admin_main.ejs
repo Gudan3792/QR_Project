@@ -7,14 +7,13 @@
         <h2>admin</h2>
         <table border='1'>
             <colgroup>
-                <col width='100'><col width='200'><col width='100'><col width='100'><col width='100'>
+                <col width='100'><col width='100'><col width='100'><col width='500'>
             </colgroup>
         <thead>
             <tr>
                 <th>번호</th>
-                <th>상품명</th>
-                <th>가격</th>
-                <th>토탈</th>
+                <th>판매id</th>
+                <th>판매금액</th>
                 <th>시간</th>
             </tr>
         </thead>
@@ -23,7 +22,6 @@
             <tr>
                 <td><%=list[i].id %></td>
                 <td><%=list[i].name %></td>
-                <td><%=list[i].price %></td>
                 <td><%=list[i].total_price %></td>
                 <td><%=list[i].created %></td>
             </tr>
@@ -32,7 +30,7 @@
     </table boader='1'>
 <div>
     <form action='/admin_login/admin_main2' method='get'>
-        <button type='submit'>관리페이지?</button>
+        <button type='submit'>관리페이지로</button>
     </form>
 </div>
     </body>

@@ -14,6 +14,7 @@
                 <th>번호</th>
                 <th>상품명</th>
                 <th>가격</th>
+                <th>이미지 주소</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                 <td><%=list[i].id %></td>
                 <td><%=list[i].name %></td>
                 <td><%=list[i].price %></td>
+                <td><%=list[i].img %></td>
             </tr>
             <% } %>
         </tbody>
@@ -31,6 +33,7 @@
         번호 : <input type='text' name="id" value="<%=list.length+1%>"><br>
         상품명 : <input type='text' name="name"><br>
         가격 : <input type='text' name='price'><br>
+        이미지 주소 : <input type='text' name="img" value="https://via.placeholder.com/365"><br>
         <button type='submit'>상품 추가</button>
     </form>
 </div>
@@ -47,7 +50,7 @@
 </div>
 <div>
     <form action='/updataAf' method='post'>
-        id : <input type='text' name="id" list="menuid"><br>
+        번호 : <input type='text' name="id" list="menuid"><br>
         <datalist id="menuid">
             <% for(i = 0; i < list.length; i++) { %>
                     <option value="<%=list[i].id%>">
@@ -59,7 +62,7 @@
     </form>
 </div>
 <form action='/Pr_updataAf' method='post'>
-    id : <input type='text' name="id" list="menuid"><br>
+    번호 : <input type='text' name="id" list="menuid"><br>
     <datalist id="menuid">
         <% for(i = 0; i < list.length; i++) { %>
                 <option value="<%=list[i].id%>">
@@ -69,5 +72,18 @@
     변경내용 : <input type='text' name="price"><br>
     <button type='submit'>가격 수정</button>
 </form>
+
+<form action='/img_updataAf' method='post'>
+    번호 : <input type='text' name="id" list="menuid"><br>
+    <datalist id="menuid">
+        <% for(i = 0; i < list.length; i++) { %>
+                <option value="<%=list[i].id%>">
+            <% } %>
+        </option>
+    </datalist>
+    변경내용 : <input type='text' name="img" value="https://via.placeholder.com/360"><br>
+    <button type='submit'>이미지 수정</button>
+</form>
+
     </body>
 </html>

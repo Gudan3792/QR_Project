@@ -44,8 +44,8 @@ app.post('/writeAf', function (req, res) {
     var body = req.body;
     console.log(body);
 
-    var sql = 'INSERT INTO `menu` VALUES(?,?, ?, NOW())';
-    var params = [body.id, body.name, body.price];
+    var sql = 'INSERT INTO `menu` VALUES(?,?, ?, NOW(),?)';
+    var params = [body.id, body.name, body.price,body.img];
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
@@ -85,6 +85,19 @@ app.post('/Pr_updataAf', function (req, res) {
 
     var sql = 'UPDATE `menu` SET price = ? WHERE id =?';
     var params = [body.price, body.id];
+    console.log(sql);
+    conn.query(sql, params, function(err) {
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.redirect('/admin_login/admin_main2');
+    });
+});
+
+app.post('/img_updataAf', function (req, res) {
+    var body = req.body;
+    console.log(body);
+
+    var sql = 'UPDATE `menu` SET img = ? WHERE id =?';
+    var params = [body.img, body.id];
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
