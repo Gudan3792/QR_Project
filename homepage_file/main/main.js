@@ -12,7 +12,7 @@
             window.history.back();  
             document.getElementsByTagName('body')[0].style.overflow = 'scroll'; 
           }).on("click", "button[name='Cmodal']", function(){
-            window.history.pushState({}, 'modal', '/modal');
+            window.history.pushState({}, 'modal');
             modal.open();
             document.getElementsByTagName('body')[0].style.overflow = 'hidden';
             
