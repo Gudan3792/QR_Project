@@ -1,7 +1,7 @@
-    window.onload = function() {
+window.onload = function() {
  
-        var modal = {
-            open : function(){
+  var modal = {
+     open : function(){
               $('#modal-wrapper').show();
             },
             close : function(){
@@ -9,7 +9,7 @@
             }
           };
           $(document).on('click', '#modal-overlay', function(){
-            window.history.back();  
+            window.history.back();
             document.getElementsByTagName('body')[0].style.overflow = 'scroll'; 
           }).on("click", "button[name='Cmodal']", function(){
             window.history.pushState({}, 'modal');
@@ -17,12 +17,15 @@
             document.getElementsByTagName('body')[0].style.overflow = 'hidden';
             
           }).on("click", '#clobutton', function(){
-            window.history.back();  
+            window.history.back();
             document.getElementsByTagName('body')[0].style.overflow = 'scroll'; 
           });
           
-          window.onpopstate = history.onpushstate = function(e) {
-              if(window.location.href.split('/').pop().indexOf('modal')===-1){ // 마지막 segment가 cards라면 모달이 아닌 리스트인 상태이어야한다.
+          window.onpopstate = history.onpushstate = function() {
+              if(window.location.href.split('/').pop().indexOf('modal')===-1){
                   modal.close(); // 현재의 모달을 닫는다.
               }
-          }}
+          }
+}
+
+
