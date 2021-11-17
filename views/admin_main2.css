@@ -1,0 +1,242 @@
+.admin_main_title
+{
+    font-size: 40px;
+    color: #42B32F;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+.admin_main_table
+{
+    text-align: center
+}
+
+.admin_main_number
+{
+    background: #42B32F;
+    color: black;
+    text-align: center;
+    
+ }
+.admin_main_name
+{
+    background: #42B32F;
+    color: black;
+    text-align: center;
+    
+}
+
+.admin_main_price
+{
+    background: #42B32F;
+    color: black;
+    text-align: center;
+    
+}
+
+.admin_main_image
+{
+    background: #42B32F;
+    color: black;
+    text-align: center; 
+   
+}
+
+.admin_main_text
+{
+    
+    text-align:center;
+    
+}
+
+
+
+
+.table1
+{
+    color: #42B32F;
+    width: 290px;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    text-align: center;
+    border: none;
+    
+    text-indent: 58px;
+    
+    
+}
+
+
+
+.text_filed
+{   
+    
+    width: 180px;
+    margin-bottom: 10px;
+    text-align: center;
+    
+   
+
+}
+.text_filed2
+{
+    width: 180px;
+    margin-bottom: 10px;
+      
+  }
+.text_filed3
+{
+    width: 200px;
+    margin-bottom: 10px;
+
+   
+}
+
+.text_filed4
+{
+    width: 200px;
+    margin-bottom: 10px;
+
+}
+
+.text_filed5
+{
+    width: 195px;
+    margin-bottom: 10px;
+}
+
+.text_filed6
+{
+    width: 180px;
+    margin-bottom: 2px;
+}
+
+.text_button
+{
+    border: none;
+    padding: 5px;
+    width: 80px;
+    background-color: #42B32F;
+    margin-top : 10px;
+    margin-bottom: 10px;
+    color: white;
+    
+    
+}
+
+.table2
+{
+    color: #42B32F;
+    width: 290px;
+    height: 85px;
+    line-height: 2;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    text-align: center;
+    border: none;
+    text-indent: 12px;
+    
+    
+}
+
+.text_button2
+{
+    border: none;
+    padding: 5px;
+    width: 80px;
+    background-color: #42B32F;
+    margin-bottom: 3px;
+    margin-top : -27px;
+   
+    
+    color: white;
+}
+
+.id_table
+{
+    color: #42B32F;
+    width: 290px;
+    height: 105px;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    text-align: center;
+    border: none;
+    text-indent: 50px;
+    padding-top: 5px;
+    
+    
+    
+}
+
+.text_button3
+{
+    border: none;
+    padding: 5px;
+    width: 100px;
+    background-color: #42B32F;
+    margin-bottom: 10px;
+    color: white;
+   
+}
+
+.price_table
+{
+    color: #42B32F;
+    width: 290px;
+    height: 100px;
+    padding-top: 5px;
+    line-height: 0.7;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    text-align: center;
+    border: none;
+    text-indent: 51px;
+   
+    
+    
+}
+
+.text_button4
+{
+    border: none;
+    padding: 5px;
+    width: 100px;
+    background-color: #42B32F;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.image_table
+{
+    color: #42B32F;
+    width: 290px;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    text-align: center;
+    border: none;
+    text-indent: 31px;
+    line-height: 2;
+    
+}
+
+.text_button5
+{
+    border: none;
+    padding: 5px;
+    width: 100px;
+    background-color: #42B32F;
+    margin-top: 7px;
+    margin-bottom: 15px;
+    color: white;
+}
