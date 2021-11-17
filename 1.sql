@@ -3,7 +3,7 @@ CREATE TABLE `menu` (
   `name` varchar(30) NOT NULL,
   `price` int(11) NOT NULL,
   `created` datetime NOT NULL,
-  `img` varchar(300) NOT NULL,
+  `img` varchar(10000) NOT NULL,
   PRIMARY KEY (`id`)
 );
  
