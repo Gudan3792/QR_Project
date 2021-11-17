@@ -82,7 +82,10 @@
                                     <div id="goorder" class="">
                                         <div class="clear"></div>
                                         <div class="buttongroup center-align cmd">
-                                            <button type="button" class="abutton" id="abutton"onclick="javascript:basket.iamport();">선택한 상품 주문</button>
+                                            <form>
+                                                <button action='/iamport' method='post' type="button" class="abutton" id="abutton"onclick="javascript:basket.iamport();">선택한 상품 주문</button>
+                                            </form>
+                                            
                                             <button type="button" class="clobutton" id="clobutton">메뉴판 닫기</button>
                                         </div>
                                     </div>
@@ -93,7 +96,6 @@
                         </div>
                 <!-- 모달종료 -->
                     </div>
-                
             </tbody>
         </table boader='1'>
         <script type="text/javascript" src = "main/main.js"></script>

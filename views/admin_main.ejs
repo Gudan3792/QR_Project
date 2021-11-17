@@ -5,29 +5,41 @@
     </head>
     <body>
         <h2>admin</h2>
-        <table border='1'>
+        <div>
+<table border='1'>
             <colgroup>
-                <col width='100'><col width='100'><col width='100'><col width='500'>
+                <col width='100'><col width='100'><col width='100'><col width='100'><col width='300'>
             </colgroup>
+            
         <thead>
-            <tr>
+            <tr align="center">
                 <th>번호</th>
-                <th>판매id</th>
-                <th>판매금액</th>
-                <th>시간</th>
+                <th>결제명</th>
+                <th>가격</th>
+                <th>카드명칭</th>
+                <th>카드번호</th>
             </tr>
+
         </thead>
         <tbody>
-            <% for(i = 0; i < list.length; i++) { %>
-            <tr>
-                <td><%=list[i].id %></td>
-                <td><%=list[i].name %></td>
-                <td><%=list[i].total_price %></td>
-                <td><%=list[i].created %></td>
-            </tr>
-            <% } %>
+
+                    <tr align="center">
+                    <td><%=1%></td>
+                    <td><%=list[0].name%></td>
+                    <td><%=list[0].amount%> <%=list[0].currency%></td>
+                    <td><%=list[0].card_name%></td>
+                    <td><%=list[0].card_number%></td>
+                </tr>
+
+                
+
+
+
+
         </tbody>
     </table boader='1'>
+        </div>
+        
 <div>
     <form action='/admin_login/admin_main2' method='get'>
         <button type='submit'>관리페이지로</button>

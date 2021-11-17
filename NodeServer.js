@@ -1,6 +1,6 @@
 const express = require('express');
-const adminModule = require("./admin_module/lib");
 const app = express();
+const adminModule = require("./admin_module/lib");
 var db_config = require(__dirname + '/SQLjs.js');
 var conn = db_config.init();
 var bodyParser = require('body-parser');
@@ -13,29 +13,37 @@ app.set('views', __dirname + '/views');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
-app.use(express.static('images'));
 app.use(express.static(__dirname + '/homepage_file'));
 
 app.get('/', function (req, res) {
     var sql = 'SELECT * FROM menu';    
-    conn.query(sql, function (err, rows, fields) {
-        if(err) console.log('query is not excuted. select fail...\n' + err);
+    conn.query(sql, function (err, rows) {
+        if(err) console.log(err);
         else res.render('main.ejs', {list : rows});
     });
 });
 
-app.get('/admin_login/admin_main', function (req, res) {
-    var sql = 'SELECT * FROM sales';    
-    conn.query(sql, function (err, rows, fields) {
-        if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('admin_main.ejs', {list : rows});
-    });
+var Iamport = require('iamport');
+var iamport = new Iamport({
+  impKey: '7397847816519153',
+  impSecret: '4228312352ed2bfb2571bffdb1f21e17d6840b4913db97788a1f2064ae70520426996c9e2f3a1b07'
+});
+
+app.get('/admin_login/admin_main',(req,res)=>{
+    iamport.payment.getByStatus({
+      payment_status: 'paid' 
+    }).then(function(result){
+        res.render('admin_main.ejs',{list:result.list});
+    }).catch(function(error){
+        console.log(error);
+        red.send(error);
+    })
 });
 
 app.get('/admin_login/admin_main2', function (req, res) {
     var sql = 'SELECT * FROM menu';    
-    conn.query(sql, function (err, rows, fields) {
-        if(err) console.log('query is not excuted. select fail...\n' + err);
+    conn.query(sql, function (err, rows) {
+        if(err) console.log(err);
         else res.render('admin_main2.ejs', {list : rows});
     });
 });
@@ -48,7 +56,7 @@ app.post('/writeAf', function (req, res) {
     var params = [body.id, body.name, body.price,body.img];
     console.log(sql);
     conn.query(sql, params, function(err) {
-        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        if(err) console.log(err);
         else res.redirect('/admin_login/admin_main2');
     });
 });
@@ -61,7 +69,7 @@ app.post('/deleteAf', function (req, res) {
     var params = [body.name];
     console.log(sql);
     conn.query(sql, params, function(err) {
-        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        if(err) console.log(err);
         else res.redirect('/admin_login/admin_main2');
     });
 });
@@ -74,7 +82,7 @@ app.post('/updataAf', function (req, res) {
     var params = [body.name, body.id];
     console.log(sql);
     conn.query(sql, params, function(err) {
-        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        if(err) console.log(err);
         else res.redirect('/admin_login/admin_main2');
     });
 });
@@ -87,7 +95,7 @@ app.post('/Pr_updataAf', function (req, res) {
     var params = [body.price, body.id];
     console.log(sql);
     conn.query(sql, params, function(err) {
-        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        if(err) console.log(err);
         else res.redirect('/admin_login/admin_main2');
     });
 });
@@ -100,7 +108,7 @@ app.post('/img_updataAf', function (req, res) {
     var params = [body.img, body.id];
     console.log(sql);
     conn.query(sql, params, function(err) {
-        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        if(err) console.log(err);
         else res.redirect('/admin_login/admin_main2');
     });
 });
@@ -108,6 +116,8 @@ app.post('/img_updataAf', function (req, res) {
 adminModule.initMethod.initAdminStaticPath("/admin_login/admin_main");//로그인 완료후 리다이렉트될 url
 
 app.use("/api",adminModule.createApiRouter());
+
+
 
 app.listen(9000,function(){
     console.log('start 9000');
