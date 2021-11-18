@@ -1,49 +1,52 @@
 <html>
     <head>
+        <link href="/admin_main2.css" rel="stylesheet" type="text/css">
         <meta charset="utf-8">
-        <title>admin</title>
+        <title>매출 관리 사이트</title>
     </head>
     <body>
-        <h2>admin</h2>
+        <div>
+        <h2 class="admin_main_title">매출 관리 사이트</h2>
+            <form action='/admin_login/admin_main2' method='get'>
+                <button type='submit' class="admin_button0">상품정보 관리 페이지로</button>
+            </form>
+        </div>
+        <div class = "table0" >
+            <% var tr_amount = 0%>총 매출액 : <% for(i=0; i<list.length;i++){ tr_amount = tr_amount + list[i].amount}%><%=tr_amount%>
+        </div>
         <div>
 <table border='1'>
             <colgroup>
-                <col width='100'><col width='100'><col width='100'><col width='100'><col width='300'>
+                <col width='10%'><col width='20%'><col width='20%'><col width='10%'><col width='30%'><col width='10%'>
             </colgroup>
             
         <thead>
             <tr align="center">
-                <th>번호</th>
-                <th>결제명</th>
-                <th>가격</th>
-                <th>카드명칭</th>
-                <th>카드번호</th>
+                <th class='admin_main_number'>번호</th>
+                <th class="admin_main_name">결제명</th>
+                <th class="admin_main_price">가격</th>
+                <th class="admin_main_cardname">카드명칭</th>
+                <th class="admin_main_cardnum">카드번호</th>
+                <th class="admin_main_userid">UserID</th>
             </tr>
-
         </thead>
         <tbody>
-
+                <% for(i=0 ; i < list.length; i++){%>
                     <tr align="center">
-                    <td><%=1%></td>
-                    <td><%=list[0].name%></td>
-                    <td><%=list[0].amount%> <%=list[0].currency%></td>
-                    <td><%=list[0].card_name%></td>
-                    <td><%=list[0].card_number%></td>
-                </tr>
-
-                
-
-
-
-
+                    <td class="admin_main_text"><%=list.length -i%> 번째 주문</td>
+                    <td class="admin_main_text"><%=list[i].name%></td>
+                    <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
+                    <td class="admin_main_text"><%=list[i].card_name%></td>
+                    <td class="admin_main_text"><%=list[i].card_number%></td>
+                    <td class="admin_main_text"><%=list[i].imp_uid%></td>
+                    </tr>
+                <%}%>
         </tbody>
     </table boader='1'>
         </div>
+
+
         
-<div>
-    <form action='/admin_login/admin_main2' method='get'>
-        <button type='submit'>관리페이지로</button>
-    </form>
-</div>
+
     </body>
 </html>

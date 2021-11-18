@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const adminModule = require("./admin_module/lib");
 var db_config = require(__dirname + '/SQLjs.js');
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
 app.use(express.static(__dirname + '/homepage_file'));
-
+app.use(express.static(path.join(__dirname,'views')));
 app.get('/', function (req, res) {
     var sql = 'SELECT * FROM menu';    
     conn.query(sql, function (err, rows) {
