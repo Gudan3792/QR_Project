@@ -7,7 +7,12 @@
     margin-bottom: 50px;
 
 }
-
+.admin_main_table0{
+    text-align: center;
+    overflow : auto;
+    min-height: 100px;
+    max-height: 400px;
+}
 .admin_main_table
 {
     text-align: center
@@ -85,6 +90,13 @@
     
     text-align:center;
     
+}
+
+.admin_main_text#결제완료됨{
+    background-color: rgb(159, 250, 21) !important;
+}
+.admin_main_text#결제취소됨{
+    background-color: rgb(255, 78, 78) !important;
 }
 
 

@@ -17,7 +17,7 @@
             
             
         </div>
-        <div>
+        <div class = "admin_main_table0">
 <table border='1'>
             <colgroup>
                 <col width='10%'><col width='20%'><col width='20%'><col width='10%'><col width='10%'><col width='20%'><col width='10%'>
@@ -35,24 +35,34 @@
             </tr>
         </thead>
         <tbody>
-                <% for(i=0 ; i < list.length; i++){%>
+            <% for(i=0 ; i < list.length; i++){%>
+                <% if(list[i].status == 'paid') { %>
                     <tr align="center">
-                    <td class="admin_main_text"><%=list.length -i%> 번째 주문</td>
-                    <td class="admin_main_text"><%=list[i].name%></td>
-                    <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
-                    <td class="admin_main_text"><%=list[i].card_name%></td>
-                    <td class="admin_main_text"><%=list[i].card_number%></td>
-                    <td class="admin_main_text"><%=list[i].buyer_addr%></td>
-                    <td class="admin_main_text">
-                        <% if(list[i].status == 'paid'){ %>결제완료<%}%>
-                        <% if(list[i].status == 'cancelled'){%>결제취소됨<%}%>
-                        <% if(list[i].status == 'ready'){%>결제중도취소<%}%>
-                        <% if(list[i].status == 'failed'){%>결제거부<%}%>
-                    </td>
+                        <td class="admin_main_text"><%=list.length -i%> 번</td>
+                        <td class="admin_main_text"><%=list[i].name%></td>
+                        <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
+                        <td class="admin_main_text"><%=list[i].card_name%></td>
+                        <td class="admin_main_text"><%=list[i].card_number%></td>
+                        <td class="admin_main_text"><%=list[i].buyer_addr%></td>
+                        <td class="admin_main_text" id="결제완료됨">결제완료</td>
                     </tr>
-                <%}%>
+                    <%}else if(list[i].status == 'cancelled'){%>
+                        <tr align="center">
+                            <td class="admin_main_text"><%=list.length -i%> 번</td>
+                            <td class="admin_main_text"><%=list[i].name%></td>
+                            <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
+                            <td class="admin_main_text"><%=list[i].card_name%></td>
+                            <td class="admin_main_text"><%=list[i].card_number%></td>
+                            <td class="admin_main_text"><%=list[i].buyer_addr%></td>
+                            <td class="admin_main_text" id="결제취소됨">결제취소됨</td>
+                        </tr>
+            <%}}%>
         </tbody>
     </table boader='1'>
         </div>
+        <div>
+            <button>환불버튼 만들어야하는자리입니다.</button>
+        </div>
+        
     </body>
 </html>
