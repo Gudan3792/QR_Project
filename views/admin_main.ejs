@@ -17,7 +17,7 @@
         <div>
 <table border='1'>
             <colgroup>
-                <col width='10%'><col width='20%'><col width='20%'><col width='10%'><col width='30%'><col width='10%'>
+                <col width='10%'><col width='20%'><col width='20%'><col width='10%'><col width='10%'><col width='20%'><col width='10%'>
             </colgroup>
             
         <thead>
@@ -27,6 +27,7 @@
                 <th class="admin_main_price">가격</th>
                 <th class="admin_main_cardname">카드명칭</th>
                 <th class="admin_main_cardnum">카드번호</th>
+                <th class="admin_main_userid">결제시각</th>
                 <th class="admin_main_userid">UserID</th>
             </tr>
         </thead>
@@ -38,15 +39,12 @@
                     <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
                     <td class="admin_main_text"><%=list[i].card_name%></td>
                     <td class="admin_main_text"><%=list[i].card_number%></td>
+                    <td class="admin_main_text"><%=list[i].buyer_addr%></td>
                     <td class="admin_main_text"><%=list[i].imp_uid%></td>
                     </tr>
                 <%}%>
         </tbody>
     </table boader='1'>
         </div>
-
-
-        
-
     </body>
 </html>
