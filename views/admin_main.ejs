@@ -12,7 +12,10 @@
             </form>
         </div>
         <div class = "table0" >
-            <% var tr_amount = 0%>총 매출액 : <% for(i=0; i<list.length;i++){ tr_amount = tr_amount + list[i].amount}%><%=tr_amount%>
+            <% var tr_amount = 0%>총 매출액 : <% for(var i=0; i<list.length;i++){ if(list[i].status == 'paid'){tr_amount = tr_amount + list[i].amount}}%>
+                <%=tr_amount%> 원
+            
+            
         </div>
         <div>
 <table border='1'>
@@ -28,7 +31,7 @@
                 <th class="admin_main_cardname">카드명칭</th>
                 <th class="admin_main_cardnum">카드번호</th>
                 <th class="admin_main_userid">결제시각</th>
-                <th class="admin_main_userid">UserID</th>
+                <th class="admin_main_userid">지불정보</th>
             </tr>
         </thead>
         <tbody>
@@ -40,7 +43,12 @@
                     <td class="admin_main_text"><%=list[i].card_name%></td>
                     <td class="admin_main_text"><%=list[i].card_number%></td>
                     <td class="admin_main_text"><%=list[i].buyer_addr%></td>
-                    <td class="admin_main_text"><%=list[i].imp_uid%></td>
+                    <td class="admin_main_text">
+                        <% if(list[i].status == 'paid'){ %>결제완료<%}%>
+                        <% if(list[i].status == 'cancelled'){%>결제취소됨<%}%>
+                        <% if(list[i].status == 'ready'){%>결제중도취소<%}%>
+                        <% if(list[i].status == 'failed'){%>결제거부<%}%>
+                    </td>
                     </tr>
                 <%}%>
         </tbody>

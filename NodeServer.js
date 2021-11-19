@@ -32,7 +32,9 @@ var iamport = new Iamport({
 
 app.get('/admin_login/admin_main',(req,res)=>{
     iamport.payment.getByStatus({
-      payment_status: 'paid' 
+      payment_status: 'all' ,
+      sorting : '-updated',
+      limit : '500'
     }).then(function(result){
         res.render('admin_main.ejs',{list:result.list});
     }).catch(function(error){
