@@ -46,12 +46,12 @@ let basket = {
     iamport: function(){
         var payday = new Date()
         var Pyear = payday.getFullYear()
-        var Pmonth = payday.getMonth()
+        var Pmonth = payday.getMonth() +1
         var Pdate = payday.getDate()
         var Phours = payday.getHours()
         var Pmin = payday.getMinutes()
         var Psec = payday.getSeconds()
-        
+
         IMP.init('imp72396912');        //가맹점 식별코드
             IMP.request_pay({
                 pg : 'inicis',
