@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const axios   = require('axios');
 const adminModule = require("./admin_module/lib");
 var db_config = require(__dirname + '/SQLjs.js');
 var conn = db_config.init();
@@ -125,3 +126,47 @@ app.use("/api",adminModule.createApiRouter());
 app.listen(9000,function(){
     console.log('start 9000');
 });
+
+app.post('/payments/cancel', async (req, res) => {
+    
+    try {
+    const body = req.body;
+    const Cimp_uid = body.Pimp_uid;
+      //token 가져옴
+      const accessToken = await _getIamportToken();
+
+      //아임포트 환불 API 호출
+      const refundRet = await axios({
+        url : 'https://api.iamport.kr/payments/cancel',
+        method : 'POST',
+        headers : { "Authorization": accessToken },
+        data : { 
+          imp_uid : Cimp_uid, 
+        }
+      });
+      const isSuccess = !!refundRet.data.response;
+  
+      if(isSuccess) {
+        //환불완료
+        res.redirect("/admin_login/admin_main");
+      } else {
+
+      }
+  
+    } catch(err) {
+
+    }
+  });
+
+async function _getIamportToken() {
+    const tokenParam = { imp_key : '7397847816519153', imp_secret : '4228312352ed2bfb2571bffdb1f21e17d6840b4913db97788a1f2064ae70520426996c9e2f3a1b07' };
+  
+    //accessToken 가져오기
+    const tokenRes = await axios.post('https://api.iamport.kr/users/getToken', tokenParam),
+          accessToken = tokenRes.data.response.access_token;
+  
+    if(!accessToken) {
+      throw new Error("AccessToken is not exist");
+    }
+    return accessToken;
+  }

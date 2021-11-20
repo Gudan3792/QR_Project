@@ -33,7 +33,7 @@
     </table boader='1'>
     <div class = "change_button_table">
         <div class="table1">
-            <form action='/writeAf' method='post'>
+            <form action='/writeAf' method='post' autocomplete="off">
                 번호 : <input type='text' class="text_filed" name="id"  value="<%=list.length+1%>"><br>
                 &emsp;&emsp;&ensp;상품명 :  <input type='text' class="text_filed2" name="name"><br>
                 &emsp;&emsp;&emsp;&ensp;가격 :  <input type='text' class="text_filed" name='price'><br>
@@ -41,8 +41,8 @@
                 <button type='submit' class="text_button">상품 추가</button>
             </form>
         </div>
-        <div class="table2">
-            <form action='/deleteAf' method='post'>
+        <div class="table2" >
+            <form action='/deleteAf' method='post' autocomplete="off">
                 상품명 : <input type='text' class="text_filed5" name="name" list="menuname"><br>
                 <datalist id="menuname">
                     <% for(i = 0; i < list.length; i++) { %>
@@ -54,7 +54,7 @@
             </form>
         </div>
         <div class="id_table">
-            <form action='/updataAf' method='post'>
+            <form action='/updataAf' method='post' autocomplete="off">
                 id : <input type='text' class="text_filed3" name="id" list="menuid"><br>
                 <datalist id="menuid">
                     <% for(i = 0; i < list.length; i++) { %>
@@ -67,7 +67,7 @@
             </form>
         </div>
         <div class="price_table">
-            <form action='/Pr_updataAf' method='post' >
+            <form action='/Pr_updataAf' method='post' autocomplete="off">
                 id : <input type='text' name="id" list="menuid"><br>
                 <datalist id="menuid">
                     <% for(i = 0; i < list.length; i++) { %>
@@ -82,7 +82,7 @@
             </form>
         </div>
         <div class="image_table">
-            <form action='/img_updataAf' method='post' >
+            <form action='/img_updataAf' method='post' autocomplete="off">
                 번호 : <input type='text' name="id" list="menuid"><br>
                 <datalist id="menuid">
                     <% for(i = 0; i < list.length; i++) { %>

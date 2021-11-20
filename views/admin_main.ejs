@@ -20,7 +20,7 @@
         <div class = "admin_main_table0">
 <table border='1'>
             <colgroup>
-                <col width='10%'><col width='20%'><col width='20%'><col width='10%'><col width='10%'><col width='20%'><col width='10%'>
+                <col width='10%'><col width='15%'><col width='20%'><col width='10%'><col width='10%'><col width='20%'><col width='5%'><col width='10%'>
             </colgroup>
             
         <thead>
@@ -31,6 +31,7 @@
                 <th class="admin_main_cardname">카드명칭</th>
                 <th class="admin_main_cardnum">카드번호</th>
                 <th class="admin_main_userid">결제시각</th>
+                <th class="admin_main_userid">UID</th>
                 <th class="admin_main_userid">지불정보</th>
             </tr>
         </thead>
@@ -44,6 +45,7 @@
                         <td class="admin_main_text"><%=list[i].card_name%></td>
                         <td class="admin_main_text"><%=list[i].card_number%></td>
                         <td class="admin_main_text"><%=list[i].buyer_addr%></td>
+                        <td class="admin_main_text"><%=list[i].imp_uid%></td>
                         <td class="admin_main_text" id="결제완료됨">결제완료</td>
                     </tr>
                     <%}else if(list[i].status == 'cancelled'){%>
@@ -54,15 +56,27 @@
                             <td class="admin_main_text"><%=list[i].card_name%></td>
                             <td class="admin_main_text"><%=list[i].card_number%></td>
                             <td class="admin_main_text"><%=list[i].buyer_addr%></td>
+                            <td class="admin_main_text"><%=list[i].imp_uid%></td>
                             <td class="admin_main_text" id="결제취소됨">결제취소됨</td>
                         </tr>
             <%}}%>
         </tbody>
     </table boader='1'>
         </div>
-        <div>
-            <button>환불버튼 만들어야하는자리입니다.</button>
-        </div>
+<div class="table2">
+    <form action='/payments/cancel' method='post' autocomplete="off">
+        UID : <input type="text" id ="Pimp_uid" name="Pimp_uid" list="UID">
+        <datalist id="UID">
+            <% for(i = 0; i < list.length; i++) { %>
+                <% if(list[i].status == 'paid') { %>
+                    <option value="<%=list[i].imp_uid%>">
+                <% }} %>
+            </option></datalist>
+            <button type='submit' class="text_button3">환불하기</button>
+        
+    </form>
+</div>
+        
         
     </body>
 </html>
