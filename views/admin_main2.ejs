@@ -55,7 +55,7 @@
         </div>
         <div class="id_table">
             <form action='/updataAf' method='post' autocomplete="off">
-                id : <input type='text' class="text_filed3" name="id" list="menuid"><br>
+                번호 : <input type='text' class="text_filed3" name="id" list="menuid"><br>
                 <datalist id="menuid">
                     <% for(i = 0; i < list.length; i++) { %>
                             <option value="<%=list[i].id%>">
@@ -68,7 +68,7 @@
         </div>
         <div class="price_table">
             <form action='/Pr_updataAf' method='post' autocomplete="off">
-                id : <input type='text' name="id" list="menuid"><br>
+                번호 : <input type='text' name="id" list="menuid"><br>
                 <datalist id="menuid">
                     <% for(i = 0; i < list.length; i++) { %>
                             <option value="<%=list[i].id%>">
