@@ -25,6 +25,14 @@ app.get('/', function (req, res) {
     });
 });
 
+adminModule.initMethod.initAdminStaticPath("/admin_login/admin_main");//로그인 완료후 리다이렉트될 url
+
+app.use("/api",adminModule.createApiRouter());
+
+app.listen(9000,function(){
+    console.log('start 9000');
+});
+
 var Iamport = require('iamport');
 var iamport = new Iamport({
   impKey: '7397847816519153',
@@ -33,9 +41,9 @@ var iamport = new Iamport({
 
 app.get('/admin_login/admin_main',(req,res)=>{
     iamport.payment.getByStatus({
-      payment_status: 'all' ,
-      sorting : '-updated',
-      limit : '500'
+      payment_status: 'all' , //list를 불러올 조건(전체 : all, 미결제 : ready, 결제완료 : paid, 결제취소 : cancelled, 결제실패 : failed)
+      sorting : '-started', //불러온 list 정렬조건 (기본 : -started , 결제완료기준 : paid , 새로고침기준 : updated (-붙으면 내림차순) )
+      limit : '1000' //불러온 list를 한페이지에 몇개나 불러올지 (스테이터스에 추가로 page: ? 로 페이지 넘김 가능)
     }).then(function(result){
         res.render('admin_main.ejs',{list:result.list});
     }).catch(function(error){
@@ -115,16 +123,6 @@ app.post('/img_updataAf', function (req, res) {
         if(err) console.log(err);
         else res.redirect('/admin_login/admin_main2');
     });
-});
-
-adminModule.initMethod.initAdminStaticPath("/admin_login/admin_main");//로그인 완료후 리다이렉트될 url
-
-app.use("/api",adminModule.createApiRouter());
-
-
-
-app.listen(9000,function(){
-    console.log('start 9000');
 });
 
 app.post('/payments/cancel', async (req, res) => {
