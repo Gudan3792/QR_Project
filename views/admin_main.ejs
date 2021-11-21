@@ -5,6 +5,15 @@
         <title>매출 관리 페이지</title>      
     </head>
     <body>
+            <%function Unix_timestamp(t){%>
+                <%var date = new Date(t*1000);%>
+                <%var year = date.getFullYear();%>
+                <%var month = "0" + (date.getMonth()+1);%>
+                <%var day = "0" + date.getDate();%>
+                <%var hour = "0" + date.getHours();%>
+                <%var minute = "0" + date.getMinutes();%>
+                <%var second = "0" + date.getSeconds();%>
+                <%return year + "-" + month.substr(-2) + "-" + day.substr(-2) + " " + hour.substr(-2) + ":" + minute.substr(-2) + ":" + second.substr(-2);}%>
         <div>
         <h2 class="admin_main_title">매출 관리 페이지</h2>
             <form action='/admin_login/admin_main2' method='get'>
@@ -20,7 +29,7 @@
         <div class = "admin_main_table0">
 <table border='1'>
             <colgroup>
-                <col width='10%'><col width='15%'><col width='20%'><col width='10%'><col width='10%'><col width='20%'><col width='5%'><col width='10%'>
+                <col width='10%'><col width='15%'><col width='20%'><col width='20%'><col width='5%'><col width='10%'>
             </colgroup>
             
         <thead>
@@ -28,8 +37,6 @@
                 <th class='admin_main_number'>번호</th>
                 <th class="admin_main_name">결제명</th>
                 <th class="admin_main_price">가격</th>
-                <th class="admin_main_cardname">카드명칭</th>
-                <th class="admin_main_cardnum">카드번호</th>
                 <th class="admin_main_userid">결제시각</th>
                 <th class="admin_main_userid">UID</th>
                 <th class="admin_main_userid">지불정보</th>
@@ -44,9 +51,7 @@
                         <td class="admin_main_text"><%=k%> 번</td>
                         <td class="admin_main_text"><%=list[i].name%></td>
                         <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
-                        <td class="admin_main_text"><%=list[i].card_name%></td>
-                        <td class="admin_main_text"><%=list[i].card_number%></td>
-                        <td class="admin_main_text"><%=list[i].buyer_addr%></td>
+                        <td class="admin_main_text"><%=Unix_timestamp(list[i].paid_at)%></td>
                         <td class="admin_main_text"><%=list[i].imp_uid%></td>
                         <td class="admin_main_text" id="결제완료됨">결제완료</td>
                     </tr>
@@ -55,9 +60,7 @@
                             <td class="admin_main_text"><%=k%> 번</td>
                             <td class="admin_main_text"><%=list[i].name%></td>
                             <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
-                            <td class="admin_main_text"><%=list[i].card_name%></td>
-                            <td class="admin_main_text"><%=list[i].card_number%></td>
-                            <td class="admin_main_text"><%=list[i].buyer_addr%></td>
+                            <td class="admin_main_text"><%=Unix_timestamp(list[i].paid_at)%></td>
                             <td class="admin_main_text"><%=list[i].imp_uid%></td>
                             <td class="admin_main_text" id="결제취소됨">결제취소됨</td>
                         </tr>
@@ -78,6 +81,5 @@
         
     </form>
 </div>
-
     </body>
 </html>
