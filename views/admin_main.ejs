@@ -2,7 +2,7 @@
     <head>
         <link href="/main/admin_main2.css" rel="stylesheet" type="text/css">
         <meta charset="utf-8">
-        <title>매출 관리 페이지</title>
+        <title>매출 관리 페이지</title>      
     </head>
     <body>
         <div>
@@ -36,10 +36,12 @@
             </tr>
         </thead>
         <tbody>
+            <% var k = 0%>
+            <%for(p=0;p<list.length;p++){if(list[p].status == 'paid'){k++;}else if(list[p].status == 'cancelled'){k++;}}%>
             <% for(i=0 ; i < list.length; i++){%>
-                <% if(list[i].status == 'paid') { %>
+                <% if(list[i].status == 'paid') {%>
                     <tr align="center">
-                        <td class="admin_main_text"><%=list.length -i%> 번</td>
+                        <td class="admin_main_text"><%=k%> 번</td>
                         <td class="admin_main_text"><%=list[i].name%></td>
                         <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
                         <td class="admin_main_text"><%=list[i].card_name%></td>
@@ -48,9 +50,9 @@
                         <td class="admin_main_text"><%=list[i].imp_uid%></td>
                         <td class="admin_main_text" id="결제완료됨">결제완료</td>
                     </tr>
-                    <%}else if(list[i].status == 'cancelled'){%>
+                    <%k--;}else if(list[i].status == 'cancelled'){ %>
                         <tr align="center">
-                            <td class="admin_main_text"><%=list.length -i%> 번</td>
+                            <td class="admin_main_text"><%=k%> 번</td>
                             <td class="admin_main_text"><%=list[i].name%></td>
                             <td class="admin_main_text"><%=list[i].amount%> <%=list[i].currency%></td>
                             <td class="admin_main_text"><%=list[i].card_name%></td>
@@ -59,7 +61,7 @@
                             <td class="admin_main_text"><%=list[i].imp_uid%></td>
                             <td class="admin_main_text" id="결제취소됨">결제취소됨</td>
                         </tr>
-            <%}}%>
+            <%k--;}}%>
         </tbody>
     </table boader='1'>
         </div>
@@ -76,7 +78,6 @@
         
     </form>
 </div>
-        
-        
+
     </body>
 </html>
