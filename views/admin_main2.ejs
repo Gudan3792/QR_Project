@@ -8,6 +8,10 @@
     </head>
     <body>
         <h2 class="admin_main_title">상품정보 변경 페이지</h2>
+        <div class="QR_button_table">
+            <button class="text_button6" onclick="makeCode();showQR()">홈페이지 QR코드 생성</button>
+            <div class="qrcode"id="qrcode"></div>
+        </div>
         <table  border='1' align=center>
             <colgroup>
                 <col  width='60'><col width='200'><col width='100'>
@@ -96,7 +100,27 @@
         </div>
         
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/main/qrcode.js"></script>
 
+    <script>
+        $('#qrcode').hide();
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+        //가로, 세로 높이 조절
+        width : 300, height : 300
+        });
 
+        function makeCode () {		
+        qrcode.makeCode(window.location.host);
+
+        }
+        function showQR(){
+            if($('#qrcode').css('display') == 'none'){
+            $('#qrcode').show();
+        }else{
+            $('#qrcode').hide();
+        }
+        }
+    </script>
     </body>
 </html>
