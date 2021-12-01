@@ -49,7 +49,7 @@ let basket = {
             IMP.request_pay({
                 pg : 'inicis',
                 pay_method : 'card',
-                // merchant_uid : 'merchant_' + new Date().getTime(),
+                merchant_uid : 'merchant_' + new Date().getTime(),
                 name : this.totalCount+" 개의 상품" , //결제창에서 보여질 이름
                 amount : this.totalPrice, //실제 결제되는 가격
             }, function(rsp) {
