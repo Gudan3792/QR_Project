@@ -16,13 +16,3 @@ INSERT INTO `menu` VALUES (5,'버블티',7000,NOW(),'https://via.placeholder.com
 INSERT INTO `menu` VALUES (6,'ZICO',8000,NOW(),'https://via.placeholder.com/365');
 INSERT INTO `menu` VALUES (7,'짬뽕',7000,NOW(),'https://via.placeholder.com/365');
 INSERT INTO `menu` VALUES (8,'생맥주',3000,NOW(),'https://via.placeholder.com/365');
-
-CREATE TABLE `sales` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30),
-  `total_price` int(11),
-  `created` datetime,
-  PRIMARY KEY (`id`)
-);
-
-INSERT INTO `sales` VALUES (1,'testData',3000,NOW());
